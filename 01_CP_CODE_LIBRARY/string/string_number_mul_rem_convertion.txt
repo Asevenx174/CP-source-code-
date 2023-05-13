@@ -1,0 +1,49 @@
+ll Remainder(string str, ll R)
+{
+    // len is variable to store the
+    // length of Number string.
+    ll len = str.length();
+ 
+    ll Num, Rem = 0;
+ 
+    // loop that find Remainder
+    for (ll i = 0; i < len; i++) {
+ 
+        Num = Rem * 10LL + (str[i] - '0');
+        Rem = Num % R;
+    }
+ 
+    // Return the remainder
+    return Rem;
+}
+string mul(string a,string b)
+{
+   if (a=="0" || b=="0"){
+      return "0" ;
+   }
+    ll m = a.size() - qq , n = b.size() - qq , carry = zz ;
+    string product;
+    for (ll i=0; i<=m+n || carry; ++i) {
+        for (ll j=max(zz, i-n); j<=min(i, m); ++j)  
+            carry += (a[m-j] - '0') * (b[n-i+j] - '0');
+        product += carry % 10 + '0';
+        carry /= 10LL;
+    }
+    reverse(begin(product), end(product));
+   return product ; 
+}
+string calco(int x)
+{
+   string ans = "" ; 
+   while(x>9)
+   {
+      int d = x%10 ; 
+      char c = d+'0' ;  
+      x = x/10 ; 
+      ans+=c ; 
+   }
+   char c = x+'0' ; 
+   ans+=c ; 
+   reverse(ans.begin(),ans.end()) ; 
+   return ans ;  
+}
